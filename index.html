@@ -1,0 +1,643 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <title>Mon espace applications</title>
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #131b2e;
+      --border: rgba(255,255,255,.09);
+      --text: #f4f7ff;
+      --muted: #94a3b8;
+      --accent: #8b5cf6;
+      --accent2: #22d3ee;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 15% 0%, #29204f 0, transparent 40%),
+        radial-gradient(ellipse at 100% 50%, #102d43 0, transparent 35%),
+        var(--bg);
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 25px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 750;
+      letter-spacing: -.5px;
+    }
+
+    .brand-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      font-size: 22px;
+      background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+      box-shadow: 0 5px 25px #8b5cf633;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 12px #34d39988;
+    }
+
+    .hero {
+      padding: 65px 0 40px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      margin-bottom: 20px;
+      border: 1px solid #8b5cf644;
+      border-radius: 30px;
+      color: #c4b5fd;
+      background: #8b5cf614;
+      font-size: 12px;
+      font-weight: 650;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      max-width: 700px;
+      font-size: clamp(36px, 6vw, 62px);
+      line-height: 1.08;
+      letter-spacing: -2.5px;
+    }
+
+    h1 span {
+      color: transparent;
+      background: linear-gradient(90deg, #a78bfa, #22d3ee);
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero p {
+      margin-top: 18px;
+      max-width: 560px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 12px;
+      margin: 15px 0 35px;
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+      min-width: 0;
+      padding: 0 17px;
+      height: 52px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #ffffff08;
+      transition: border-color .2s;
+    }
+
+    .search:focus-within {
+      border-color: #8b5cf688;
+    }
+
+    .search span {
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .search input {
+      width: 100%;
+      outline: none;
+      border: 0;
+      color: var(--text);
+      background: transparent;
+    }
+
+    .search input::placeholder {
+      color: #748198;
+    }
+
+    .add-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 14px;
+      color: white;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      font-weight: 650;
+      cursor: pointer;
+      transition: transform .2s, opacity .2s;
+      white-space: nowrap;
+    }
+
+    .add-button:hover {
+      transform: translateY(-2px);
+      opacity: .92;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .section-heading h2 {
+      font-size: 21px;
+      letter-spacing: -.5px;
+    }
+
+    .count {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      padding-bottom: 70px;
+    }
+
+    .app-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 225px;
+      padding: 23px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(145deg, #ffffff09, #ffffff03);
+      transition: transform .25s, border-color .25s,
+                  background .25s;
+    }
+
+    .app-card::before {
+      position: absolute;
+      top: -70px;
+      right: -70px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: var(--glow, #8b5cf6);
+      filter: blur(75px);
+      opacity: .15;
+      content: "";
+      pointer-events: none;
+    }
+
+    .app-card:hover {
+      transform: translateY(-5px);
+      border-color: #8b5cf677;
+      background: #ffffff0b;
+    }
+
+    .app-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .app-icon {
+      display: grid;
+      place-items: center;
+      width: 55px;
+      height: 55px;
+      border: 1px solid #ffffff12;
+      border-radius: 17px;
+      background: var(--icon-bg, #8b5cf622);
+      font-size: 27px;
+    }
+
+    .arrow {
+      color: #748198;
+      font-size: 20px;
+      transition: transform .2s, color .2s;
+    }
+
+    .app-card:hover .arrow {
+      color: white;
+      transform: translate(3px, -3px);
+    }
+
+    .app-card h3 {
+      margin-top: 22px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .app-card p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .app-link {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .app-card h3, .app-card p, .app-icon,
+    .app-top {
+      pointer-events: none;
+    }
+
+    .empty {
+      display: none;
+      grid-column: 1 / -1;
+      padding: 45px 15px;
+      text-align: center;
+      color: var(--muted);
+      border: 1px dashed var(--border);
+      border-radius: 18px;
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    @media (max-width: 760px) {
+      .apps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .app-card {
+        min-height: 215px;
+        padding: 17px;
+      }
+
+      .hero {
+        padding-top: 45px;
+      }
+
+      h1 {
+        letter-spacing: -1.5px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .status {
+        font-size: 0;
+      }
+
+      .status .dot {
+        width: 10px;
+        height: 10px;
+      }
+
+      .toolbar {
+        flex-direction: column;
+      }
+
+      .search {
+        flex: auto;
+        width: 100%;
+      }
+
+      .add-button {
+        height: 48px;
+      }
+
+      .apps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .app-card {
+        min-height: 190px;
+      }
+
+      footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <a class="brand" href="./" aria-label="Accueil">
+        <div class="brand-icon">✦</div>
+        <span>Mon espace<span style="color:#a78bfa">.</span></span>
+      </a>
+
+      <div class="status">
+        <span class="dot"></span>
+        Votre espace personnel
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">
+          <span>✦</span> Votre centre de contrôle
+        </div>
+
+        <h1>
+          Toutes vos applications,<br>
+          <span>au même endroit.</span>
+        </h1>
+
+        <p>
+          Retrouvez facilement vos outils et vos projets.
+          Un seul espace pour accéder à tout ce dont vous avez besoin.
+        </p>
+      </section>
+
+      <section aria-labelledby="apps-title">
+        <div class="toolbar">
+          <label class="search">
+            <span>⌕</span>
+            <input
+              type="search"
+              id="search"
+              placeholder="Rechercher une application..."
+              aria-label="Rechercher une application"
+            >
+          </label>
+
+          <button class="add-button" id="add-app" type="button">
+            <span>＋</span> Ajouter une app
+          </button>
+        </div>
+
+        <div class="section-heading">
+          <h2 id="apps-title">Mes applications</h2>
+          <span class="count" id="app-count"></span>
+        </div>
+
+        <div class="apps-grid" id="apps-grid">
+
+          <!-- Modifiez les liens et les textes selon vos besoins. -->
+
+          <article class="app-card"
+            data-name="Gestionnaire de projets">
+            <div class="app-top">
+              <div class="app-icon"
+                style="--icon-bg:#8b5cf622">📊</div>
+              <span class="arrow">↗</span>
+            </div>
+            <h3>Gestionnaire de projets</h3>
+            <p>Organisez vos tâches et suivez vos projets.</p>
+            <a class="app-link" href="https://example.com"
+              aria-label="Ouvrir Gestionnaire de projets"></a>
+          </article>
+
+          <article class="app-card"
+            data-name="Notes et idées">
+            <div class="app-top">
+              <div class="app-icon"
+                style="--icon-bg:#f59e0b22">📝</div>
+              <span class="arrow">↗</span>
+            </div>
+            <h3>Notes et idées</h3>
+            <p>Centralisez vos notes et vos inspirations.</p>
+            <a class="app-link" href="https://example.com"
+              aria-label="Ouvrir Notes et idées"></a>
+          </article>
+
+          <article class="app-card"
+            data-name="Mes fichiers">
+            <div class="app-top">
+              <div class="app-icon"
+                style="--icon-bg:#06b6d422">📁</div>
+              <span class="arrow">↗</span>
+            </div>
+            <h3>Mes fichiers</h3>
+            <p>Accédez rapidement à vos documents.</p>
+            <a class="app-link" href="https://example.com"
+              aria-label="Ouvrir Mes fichiers"></a>
+          </article>
+
+          <article class="app-card"
+            data-name="Tableau de bord">
+            <div class="app-top">
+              <div class="app-icon"
+                style="--icon-bg:#10b98122">📈</div>
+              <span class="arrow">↗</span>
+            </div>
+            <h3>Tableau de bord</h3>
+            <p>Retrouvez vos indicateurs essentiels.</p>
+            <a class="app-link" href="https://example.com"
+              aria-label="Ouvrir Tableau de bord"></a>
+          </article>
+
+          <article class="app-card"
+            data-name="Outils personnels">
+            <div class="app-top">
+              <div class="app-icon"
+                style="--icon-bg:#ec489922">🛠️</div>
+              <span class="arrow">↗</span>
+            </div>
+            <h3>Outils personnels</h3>
+            <p>Vos petits outils du quotidien.</p>
+            <a class="app-link" href="https://example.com"
+              aria-label="Ouvrir Outils personnels"></a>
+          </article>
+
+          <article class="app-card"
+            data-name="Paramètres">
+            <div class="app-top">
+              <div class="app-icon"
+                style="--icon-bg:#64748b22">⚙️</div>
+              <span class="arrow">↗</span>
+            </div>
+            <h3>Paramètres</h3>
+            <p>Personnalisez votre environnement.</p>
+            <a class="app-link" href="https://example.com"
+              aria-label="Ouvrir Paramètres"></a>
+          </article>
+
+          <div class="empty" id="empty">
+            Aucune application trouvée.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© <span id="year"></span> Mon espace personnel</span>
+      <a href="mailto:contact@example.com">Me contacter ↗</a>
+    </footer>
+
+  </div>
+
+  <script>
+    const grid = document.getElementById("apps-grid");
+    const search = document.getElementById("search");
+    const count = document.getElementById("app-count");
+    const empty = document.getElementById("empty");
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    function updateApps() {
+      const query = search.value.trim().toLocaleLowerCase("fr");
+      const cards = [...grid.querySelectorAll(".app-card")];
+      let visible = 0;
+
+      cards.forEach(card => {
+        const name = card.dataset.name || "";
+        const text = card.textContent || "";
+        const matches = (name + " " + text)
+          .toLocaleLowerCase("fr").includes(query);
+
+        card.style.display = matches ? "flex" : "none";
+        if (matches) visible++;
+      });
+
+      count.textContent =
+        visible + (visible > 1 ? " applications" : " application");
+
+      empty.style.display = visible === 0 ? "block" : "none";
+    }
+
+    search.addEventListener("input", updateApps);
+
+    document.getElementById("add-app").addEventListener("click", () => {
+      const name = prompt("Nom de la nouvelle application :");
+      if (!name || !name.trim()) return;
+
+      const url = prompt(
+        "Adresse URL de l'application :",
+        "https://"
+      );
+      if (!url || !url.trim()) return;
+
+      let parsedUrl;
+      try {
+        parsedUrl = new URL(url.trim());
+        if (!["http:", "https:"].includes(parsedUrl.protocol)) {
+          throw new Error("Protocole non autorisé");
+        }
+      } catch {
+        alert("Veuillez saisir une URL valide commençant par https:// ou http://.");
+        return;
+      }
+
+      const description =
+        prompt("Description de l'application :") ||
+        "Accédez à votre application.";
+
+      const card = document.createElement("article");
+      card.className = "app-card";
+      card.dataset.name = name.trim();
+
+      const top = document.createElement("div");
+      top.className = "app-top";
+
+      const appIcon = document.createElement("div");
+      appIcon.className = "app-icon";
+      appIcon.textContent = "🚀";
+
+      const arrow = document.createElement("span");
+      arrow.className = "arrow";
+      arrow.textContent = "↗";
+
+      top.append(appIcon, arrow);
+
+      const heading = document.createElement("h3");
+      heading.textContent = name.trim();
+
+      const paragraph = document.createElement("p");
+      paragraph.textContent = description.trim();
+
+      const link = document.createElement("a");
+      link.className = "app-link";
+      link.href = parsedUrl.href;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.setAttribute("aria-label", "Ouvrir " + name.trim());
+
+      card.append(top, heading, paragraph, link);
+
+      const emptyCard = document.getElementById("empty");
+      grid.insertBefore(card, emptyCard);
+
+      updateApps();
+    });
+
+    updateApps();
+  </script>
+</body>
+</html>
