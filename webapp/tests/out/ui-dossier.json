@@ -1,0 +1,451 @@
+{
+  "schema": "askformoney.dossier",
+  "version": 1,
+  "createdAt": "2026-10-12T16:19:28.170Z",
+  "updatedAt": "2026-10-12T16:19:31.545Z",
+  "demande": {
+    "numeraire": true,
+    "nature": true,
+    "recurrence": "premiere",
+    "fonctionnement": false,
+    "projets": true,
+    "periode": "annuelle",
+    "investissement": false,
+    "dest": {
+      "etat": {
+        "on": false,
+        "nom": "",
+        "service": ""
+      },
+      "region": {
+        "on": true,
+        "nom": "Région Exemple",
+        "service": "Direction de la vie associative"
+      },
+      "departement": {
+        "on": true,
+        "nom": "Département Exemple",
+        "service": "Service jeunesse et sports"
+      },
+      "commune": {
+        "on": true,
+        "nom": "Ville de Exempleville",
+        "service": "Direction de la vie locale"
+      },
+      "etablissement": {
+        "on": false,
+        "nom": ""
+      },
+      "autre": {
+        "on": false,
+        "nom": ""
+      }
+    }
+  },
+  "identification": {
+    "nom": "Les Jardins Partagés du Val Imaginaire – Association pour l'agriculture urbaine et le lien social",
+    "sigle": "JPVI",
+    "siteWeb": "www.exemple-jardins.org",
+    "siret": "12345678900015",
+    "rna": "W000000000",
+    "alsaceMoselle": false,
+    "registre": {
+      "date": "",
+      "volume": "",
+      "folio": "",
+      "tribunal": ""
+    },
+    "siege": {
+      "adresse": "1 rue de l'Exemple",
+      "cp": "99000",
+      "commune": "Exempleville",
+      "deleguee": ""
+    },
+    "gestionDifferente": false,
+    "gestion": {
+      "adresse": "",
+      "cp": "",
+      "commune": "",
+      "deleguee": ""
+    },
+    "representant": {
+      "nom": "DUPONT",
+      "prenom": "Camille",
+      "fonction": "Présidente",
+      "telephone": "01 00 00 00 00",
+      "courriel": "presidence@exemple-jardins.org"
+    },
+    "chargeDifferente": true,
+    "charge": {
+      "nom": "MARTIN",
+      "prenom": "Alex",
+      "fonction": "Coordinateur",
+      "telephone": "01 00 00 00 01",
+      "courriel": "coordination@exemple-jardins.org"
+    }
+  },
+  "relations": {
+    "agrements": "oui",
+    "agrementsListe": [
+      {
+        "type": "Agrément « Jeunesse Éducation Populaire »",
+        "par": "Préfecture (exemple)",
+        "date": "2021-03-15"
+      }
+    ],
+    "rup": "non",
+    "rupDate": "",
+    "impotsCommerciaux": "non",
+    "reseau": "Fédération fictive des jardins collectifs",
+    "adherentsPM": "oui",
+    "adherentsPMListe": "Deux associations de quartier (fictives) et un centre social (fictif).",
+    "sportive": false
+  },
+  "moyens": {
+    "benevoles": "42",
+    "volontaires": "2",
+    "salaries": "3",
+    "emploisAides": "1",
+    "etpt": "2.2",
+    "misADisposition": "0",
+    "adherents": "180",
+    "etptCalc": [
+      {
+        "quotite": "100",
+        "mois": "12"
+      }
+    ]
+  },
+  "budget": {
+    "annee": "2027",
+    "du": "2027-01-01",
+    "au": "2027-12-31",
+    "v": {
+      "66": "150",
+      "68": "2000",
+      "70": "9950",
+      "601": "3000",
+      "602": "1200",
+      "613": "6000",
+      "615": "800",
+      "616": "900",
+      "622": "1500",
+      "623": "700",
+      "625": "1100",
+      "631": "400",
+      "641": "52000",
+      "645": "21000",
+      "756": "3600",
+      "758": "2500",
+      "864": "18000",
+      "875": "18000",
+      "65a": "300"
+    },
+    "labels": {
+      "65a": "Cotisations au réseau"
+    },
+    "funders": {
+      "etat": [
+        {
+          "nom": "Ministère chargé de la jeunesse (exemple)",
+          "montant": "8000"
+        }
+      ],
+      "region": [
+        {
+          "nom": "Région Exemple",
+          "montant": "15000"
+        }
+      ],
+      "departement": [
+        {
+          "nom": "Département Exemple",
+          "montant": "12000"
+        }
+      ],
+      "communes": [
+        {
+          "nom": "Ville de Exempleville",
+          "montant": "18000"
+        },
+        {
+          "nom": "Communauté de communes Exemple",
+          "montant": "6000"
+        }
+      ],
+      "organismesSociaux": "4000",
+      "europe": "",
+      "asp": "9000",
+      "autresEP": "",
+      "prives": "3000"
+    },
+    "indirect": {
+      "cff": "",
+      "ff": "",
+      "autres": ""
+    },
+    "propres": []
+  },
+  "projets": [
+    {
+      "intitule": "Cultiver ensemble : un jardin nourricier au cœur du quartier",
+      "politiqueVille": true,
+      "contratVille": "Contrat de ville fictif 2024-2030, axe « cohésion sociale »",
+      "objectifs": "Objectif général : renforcer le lien social et l'accès à une alimentation saine dans le quartier.\nObjectifs spécifiques : ouvrir le jardin à 60 familles ; former 15 bénévoles référents ; organiser 20 ateliers.\nObjectifs opérationnels : aménager 30 parcelles, animer deux ateliers par mois, créer un comité de jardiniers.",
+      "description": "Le projet se déroule en trois phases.\n1. Janvier-mars : aménagement des parcelles et du local à outils avec les habitants.\n2. Avril-octobre : ateliers hebdomadaires de jardinage, de cuisine et de compostage, ouverts à tous.\n3. Novembre-décembre : bilan collectif, fête de quartier et préparation de la saison suivante.\nChaque atelier est co-animé par un salarié et un bénévole référent.",
+      "beneficiaires": "Environ 60 familles du quartier, dont une majorité de familles monoparentales ; enfants accueillis avec leurs parents ; participation financière symbolique de 5 € par an et par famille. Une attention particulière est portée à la mixité et à l'égalité femmes-hommes.",
+      "territoire": "Quartier prioritaire fictif « Les Coteaux », Exempleville.",
+      "moyens": "Un terrain de 2 000 m² mis à disposition par la commune, un local à outils, 2 salariés animateurs à temps partiel et 15 bénévoles référents.",
+      "rh": {
+        "benevoles": {
+          "n": "15",
+          "etpt": "1.5"
+        },
+        "salaries": {
+          "n": "2",
+          "etpt": "1.2"
+        },
+        "cdi": {
+          "n": "2",
+          "etpt": "1.2"
+        },
+        "cdd": {
+          "n": "0",
+          "etpt": ""
+        },
+        "aides": {
+          "n": "1",
+          "etpt": "0.6"
+        },
+        "volontaires": {
+          "n": "1",
+          "etpt": "0.8"
+        }
+      },
+      "recrutement": "non",
+      "recrutementEtpt": "",
+      "dateDebut": "2027-01-01",
+      "dateFin": "2027-12-31",
+      "evaluation": "Réalisation : nombre d'ateliers organisés (cible : 20) ; nombre de familles inscrites (cible : 60).\nRésultat : part des familles déclarant consommer davantage de légumes (cible : 50 %).\nImpact : création d'un comité de jardiniers autonome à l'issue de la deuxième année.",
+      "budget": {
+        "annee": "2027",
+        "du": "2027-01-01",
+        "au": "2027-12-31",
+        "v": {
+          "65": "150",
+          "70": "300",
+          "601": "2500",
+          "613": "0",
+          "616": "400",
+          "623": "300",
+          "641": "18000",
+          "645": "7000",
+          "756": "300",
+          "861": "4000",
+          "864": "6000",
+          "871": "4000",
+          "875": "6000",
+          "60x": "900"
+        },
+        "labels": {
+          "60x": "Petit outillage"
+        },
+        "funders": {
+          "etat": [
+            {
+              "nom": "Préfecture – crédits politique de la ville (exemple)",
+              "montant": "3000"
+            },
+            {
+              "nom": "Direction départementale (exemple)",
+              "montant": "1500"
+            },
+            {
+              "nom": "Ministère chargé de l'agriculture (exemple)",
+              "montant": "1000"
+            },
+            {
+              "nom": "Agence de l'État (exemple)",
+              "montant": "500"
+            }
+          ],
+          "region": [
+            {
+              "nom": "Région Exemple",
+              "montant": "6000"
+            }
+          ],
+          "departement": [
+            {
+              "nom": "Département Exemple",
+              "montant": "4000"
+            }
+          ],
+          "communes": [
+            {
+              "nom": "Ville de Exempleville",
+              "montant": "8000"
+            }
+          ],
+          "organismesSociaux": "2000",
+          "europe": "",
+          "asp": "",
+          "autresEP": "",
+          "prives": "1200"
+        },
+        "indirect": {
+          "cff": "2000",
+          "ff": "",
+          "autres": ""
+        },
+        "propres": [
+          {
+            "label": "Prélèvement sur réserves",
+            "montant": "1050"
+          }
+        ]
+      },
+      "subvention": "8000"
+    },
+    {
+      "intitule": "Semaine fictive du compost partagé",
+      "politiqueVille": false,
+      "contratVille": "",
+      "objectifs": "Sensibiliser 300 habitants au compostage domestique et collectif.",
+      "description": "Une semaine d'animations : stands, démonstrations et distribution de composteurs.",
+      "beneficiaires": "Habitants de la commune, tous âges.",
+      "territoire": "Exempleville.",
+      "moyens": "1 salarié et 10 bénévoles pendant une semaine.",
+      "rh": {
+        "benevoles": {
+          "n": "10",
+          "etpt": "0.2"
+        },
+        "salaries": {
+          "n": "1",
+          "etpt": "0.1"
+        },
+        "cdi": {
+          "n": "1",
+          "etpt": "0.1"
+        },
+        "cdd": {
+          "n": "",
+          "etpt": ""
+        },
+        "aides": {
+          "n": "",
+          "etpt": ""
+        },
+        "volontaires": {
+          "n": "",
+          "etpt": ""
+        }
+      },
+      "recrutement": "non",
+      "recrutementEtpt": "",
+      "dateDebut": "2027-05-10",
+      "dateFin": "2027-05-16",
+      "evaluation": "Nombre de visiteurs (cible : 300) ; nombre de composteurs distribués (cible : 50).",
+      "budget": {
+        "annee": "2027",
+        "du": "",
+        "au": "",
+        "v": {
+          "601": "1500",
+          "623": "500",
+          "641": "1200",
+          "645": "500",
+          "864": "1600",
+          "875": "1600"
+        },
+        "labels": {},
+        "funders": {
+          "etat": [],
+          "region": [],
+          "departement": [],
+          "communes": [
+            {
+              "nom": "Ville de Exempleville",
+              "montant": "2500"
+            }
+          ],
+          "organismesSociaux": "",
+          "europe": "",
+          "asp": "",
+          "autresEP": "",
+          "prives": "1200"
+        },
+        "indirect": {
+          "cff": "",
+          "ff": "",
+          "autres": ""
+        },
+        "propres": []
+      },
+      "subvention": "2500"
+    }
+  ],
+  "equipement": {
+    "projet": "2",
+    "dateDemande": "2027-03-01",
+    "type": "manifestation",
+    "manif": {
+      "date": "2027-05-15",
+      "titre": "Fête fictive du compost",
+      "descriptif": "Stands, ateliers et démonstrations sur la place du marché.",
+      "personnes": "300",
+      "debutH": "10",
+      "debutM": "00",
+      "finH": "18",
+      "finM": "00"
+    },
+    "perm": {
+      "debut": "",
+      "fin": "",
+      "besoin": "",
+      "beneficiaires": ""
+    },
+    "sites": {
+      "parc": "",
+      "voie": "Place du marché (fictive)",
+      "stade": "",
+      "salle": "",
+      "specifique": "",
+      "autre": ""
+    },
+    "materiel": {
+      "barnum": "4",
+      "chaises": "40",
+      "tables": "10",
+      "barrieres": "6",
+      "podium": "1 (4 m x 3 m)"
+    },
+    "securite": {
+      "deH": "",
+      "deM": "",
+      "aH": "",
+      "aM": "",
+      "gardiennage": ""
+    }
+  },
+  "attestations": {
+    "signataire": "DUPONT Camille",
+    "mandat": false,
+    "aidesPubliques": "inf",
+    "demandes": [
+      {
+        "montant": "10500",
+        "annee": "2027"
+      }
+    ],
+    "faitLe": "2026-11-15",
+    "faitA": "Exempleville"
+  },
+  "aidesEtat": {
+    "concerne": false,
+    "lignes": []
+  },
+  "pieces": {},
+  "exportedAt": "2026-10-12T16:19:33.997Z"
+}

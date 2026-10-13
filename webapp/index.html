@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demande de subvention assistée – Cerfa 12156*06</title>
+  <meta name="description" content="Remplissez pas à pas le formulaire unique de demande de subvention des associations et obtenez le Cerfa n°12156*06 rempli.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231B4332'/%3E%3Cpath d='M9 8h10l4 4v12H9z' fill='%23fff'/%3E%3Cpath d='M12 15h8M12 19h6' stroke='%231D7874' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au formulaire</a>
+  <header class="topbar">
+    <button type="button" class="brand" id="btn-home" title="Accueil">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text"><b>Demande de subvention assistée</b><small>Cerfa n°12156*06 · askForMoney</small></span>
+    </button>
+    <div class="top-actions">
+      <span id="save-status" class="save-status" aria-live="polite"></span>
+      <button type="button" class="btn-ghost" id="btn-open">Ouvrir…</button>
+      <input type="file" id="open-input" class="visually-hidden" accept=".json,.pdf,application/json,application/pdf" aria-label="Ouvrir un dossier ou un Cerfa">
+      <button type="button" class="btn-ghost" id="btn-export">Enregistrer le fichier</button>
+    </div>
+  </header>
+  <div id="storage-warning" class="banner" role="alert" hidden>
+    Ce navigateur bloque la sauvegarde automatique (navigation privée ?). Enregistrez régulièrement le fichier du dossier.
+  </div>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="Étapes du dossier">
+      <label class="mobile-steps"><span class="visually-hidden">Étape</span><select id="step-select"></select></label>
+      <div id="steps"></div>
+    </nav>
+    <main id="main" class="main" tabindex="-1"></main>
+    <aside id="help" class="help" aria-label="Aide de la notice officielle">
+      <div class="help-head">
+        <h2>Aide</h2>
+        <button type="button" class="help-close" aria-label="Fermer l'aide">×</button>
+      </div>
+      <div class="help-body" aria-live="polite"></div>
+      <p class="help-foot">Conseils issus de la <a href="assets/notice_51781_04.pdf" target="_blank" rel="noopener">notice officielle n°51781#04</a>.</p>
+    </aside>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/vendor/pdf-lib.min.js"></script>
+  <script src="js/cerfa-template.js"></script>
+  <script src="js/model.js"></script>
+  <script src="js/help.js"></script>
+  <script src="js/sample.js"></script>
+  <script src="js/pdf-fill.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/steps.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
